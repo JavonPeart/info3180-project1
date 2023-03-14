@@ -1,3 +1,170 @@
 body {
-    padding-top: 5rem;
+padding-top: 5rem;
+background-color: #f3f4f6;
 }
+
+.card-container {
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+}
+
+.card-container a{
+text-decoration: none;
+color: #fff;
+}
+
+.card-container a:hover{
+text-decoration: none;
+color:#ccc;
+}
+
+
+.prop-img {
+width: 100%;
+height: 50%;
+object-fit: cover;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+border-radius: 1%;
+}
+
+.my-card {
+width: 30%;
+background-color:#007bff;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+text-align: center;
+margin-right: 20px;
+margin-top: 20px;
+height: 5in;
+}
+
+.text-body{
+text-align: left;
+padding-left: 20px;
+padding-top: 20px;
+background-color: white;
+padding-bottom: 30px;
+}
+
+.view{
+text-align: center;
+background-color: #007bff;
+justify-content: center;
+padding-top: 20px;
+color: white;
+}
+
+
+.property-price {
+background-color: #007bff; /* blue color */
+color: #fff;
+display: inline-block;
+border-radius: 20px;
+padding: 10px 20px;
+font-weight: bold;
+font-size: 1.2rem;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.property-price .price {
+display: block;
+text-align: center;
+}
+
+.ppad{
+margin-right: 20px;
+}
+.property-type {
+background-color: darksalmon; /* blue color */
+color: #fff;
+display: inline-block;
+border-radius: 20px;
+padding: 10px 20px;
+font-weight: bold;
+font-size: 1.2rem;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.property-price .type {
+display: block;
+text-align: center;
+}
+
+
+.card-container-view{
+display: flex;
+flex-direction: row;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+margin-bottom: 20px;
+}
+
+
+.card {
+display: flex;
+flex-direction: row;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+margin-bottom: 20px;
+margin-top: 50px;
+}
+
+.card img {
+width: 30%;
+border-radius: 5px 0 0 5px;
+}
+
+.text-container {
+width: 70%;
+padding: 20px;
+}
+
+.title {
+margin-top: 0;
+}
+
+.details-row {
+display: flex;
+flex-direction: row;
+margin-bottom: 10px;
+}
+
+.description {
+margin-bottom: 10px;
+font-size: 24px;
+}
+
+.email-button {
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+padding: 10px;
+cursor: pointer;
+}
+
+.email-button:hover {
+background-color: #0062cc;
+}
+
+.bedrooms{
+padding-right: 20px;
+padding-left: 10px;
+}
+
+.bedrooms{
+padding-right: 20px;
+padding-left: 10px;
+}
+
+.location{
+    padding-right: 20px;
+    padding-left: 10px;
+    }

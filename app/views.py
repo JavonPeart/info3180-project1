@@ -5,9 +5,12 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
 
-from app import app
-from flask import render_template, request, redirect, url_for
-
+import os
+from app import app, db
+from flask import render_template, request, redirect, url_for, flash, send_from_directory
+from werkzeug.utils import secure_filename
+from app.models import Property
+from app.forms import AddPropertyForm
 
 ###
 # Routing for your application.
@@ -22,7 +25,66 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Javon Peart")
+
+
+@app.route('/properties/create', methods=['GET', 'POST'])
+def create_properties():
+    """Render the website's properties creation page."""
+    form = AddPropertyForm()
+
+    if request.method == "POST" and form.validate_on_submit():
+        try:
+            title = form.title.data
+            bedrooms = form.bedrooms.data
+            bathrooms = form.bathrooms.data
+            location = form.location.data
+            price = form.price.data
+            type = form.type.data
+            description = form.description.data
+            imgData = form.photo.data
+
+            image = secure_filename(imgData.filename)
+            imgData.save(os.path.join(app.config['IMAGES_FOLDER'], image))
+
+            property = Property(title, bedrooms, bathrooms, location, price, type, description, image)
+
+            db.session.add(property)
+            db.session.commit()
+
+            flash('Property successfully added', 'success')
+            return redirect(url_for('properties'))
+        except Exception as e:
+            flash('Invalid Form Data', 'danger')
+    
+    flash_errors(form)
+    return render_template('create_properties.html', form=form)
+
+
+@app.route('/properties')
+def properties():
+    """Render a list of all properties in the database."""
+    property = Property.query.all()
+    return render_template('properties.html', property=property)
+
+
+@app.route('/properties/<int:prop_id>')
+def view_property(prop_id):
+    """View an individual property by its specific property id."""
+    property = Property.query.get(prop_id)
+    return render_template('view_property.html', property=property)
+
+
+@app.route('/properties/<filename>')
+def find_file(filename):
+    return send_from_directory(app.config['IMAGES_FOLDER'], filename)
+
+
+
+
+
+
+
 
 
 ###

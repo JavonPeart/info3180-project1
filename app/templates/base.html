@@ -13,10 +13,12 @@
   </head>
   <body>
     <header>
+      
         {% include "header.html" %}
     </header>
     <main>
         <div class="container">
+            {% include 'flash.html' %}
             {% block main %}{% endblock %}
         </div>
     </main>
